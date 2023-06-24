@@ -1,0 +1,34 @@
+#************* This file contains ansible variables ************
+#******************** User-defined-variable ********************
+#
+# Notes:
+# variables can be declared and defined in ( vars: ) clause,
+# heres vars is a keyword
+#
+# vars name can contains alphanum and underscore chars, and not
+# space or '-'
+#
+# vars cannot be started with numbers
+#
+# ----------This file will contain dictonary variable----------
+#
+# file needs to be updated to access variable properties, 
+# currently students[student_1][city] or students.student_1.city
+# or any combination of these doesn't seems to work
+#
+
+---
+- hosts: parrot
+  vars:
+   students:
+     - student_1:
+        city: city-1
+        address: 1234 place@city-1
+     - student_2:
+        city: city-2
+        address: 5678 place@city-2
+ 
+  tasks:
+    - name: list_variable_example
+      debug:
+        msg: "{{ students }}"

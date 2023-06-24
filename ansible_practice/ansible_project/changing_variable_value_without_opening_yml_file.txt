@@ -1,0 +1,5 @@
+changing variable value without opening file can be done using
+      
+        -e (extra-var) command
+
+eg: ansible-playbook selinux.yml -e status=enforcing -become -i ../ansible_inventory/inventory

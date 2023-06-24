@@ -1,0 +1,56 @@
+#************* This file contains ansible variables ************
+#******************** User-defined-variable ********************
+#
+# Notes:
+# variables can be declared and defined in ( vars: ) clause,
+# heres vars is a keyword
+#
+# vars name can contains alphanum and underscore chars, and not
+# space or '-'
+#
+# vars cannot be started with numbers
+#
+# ----------This file will contain list/array variable----------
+#
+# Elements in list variable can be accessed as list[index_of_variable]
+# eg : below student_1 can be accessed as list_var[0]
+#
+# Note - '|' keeps the line break in form of '\n', '-' make sure the line
+#         break at the end end of the string does not get preserved
+#
+
+---
+- hosts: parrot
+  vars:
+   list_var:
+     - student_1 
+     - student_2 
+     - student_3
+     - student_4
+  tasks:
+    - name: list_variable_exaple
+      debug:
+        msg: |-  
+          list is {{ list_var }} 
+          list_var[0] is {{ list_var[0] }} 
+          list_var[3] is {{ list_var[3] }}
+          list_var[1] is {{ list_var[1] }}
+          list_var[2] is {{ list_var[2] }}
+
+- hosts: arch
+  user : vagrant
+  vars:
+   list_var:
+     - student_1 
+     - student_2 
+     - student_3
+     - student_4
+  tasks:
+    - name: list_variable_exaple
+      debug:
+        msg: |-  
+          list is {{ list_var }} 
+          list_var[0] is {{ list_var[0] }} 
+          list_var[3] is {{ list_var[3] }}
+          list_var[1] is {{ list_var[1] }}
+          list_var[2] is {{ list_var[2] }}

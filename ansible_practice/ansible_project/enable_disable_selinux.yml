@@ -1,0 +1,17 @@
+# this playbook change selinux-options
+# enter your nodegroup name in host 
+#
+# value of status can be enforcing, disabled or premissive 
+
+
+---
+- name: Enable or Disable SELinux
+  hosts: parrot 
+  vars:
+    status: disabled 
+  tasks:
+  - name: change SELinux in Config file
+    lineinfile:
+      path: /etc/selinux/config
+      regexp: '^SELINUX='
+      line: 'SELINUX={{ status }}'
