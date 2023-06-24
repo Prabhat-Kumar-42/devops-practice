@@ -1,0 +1,20 @@
+#************* This file contains ansible variables ************
+#******************** User-defined-variable ********************
+#
+# Notes:
+# variables can be declared and defined in ( vars: ) clause,
+# heres vars is a keyword
+#
+# vars name can contains alphanum and underscore chars, and not
+# space or '-'
+#
+# vars cannot be started with numbers
+
+---
+- hosts: parrot
+  vars:
+   var_1: "hello world !!"
+  tasks:
+    - name: variable_exaple
+      debug:
+       msg: "{{ var_1 }}"
