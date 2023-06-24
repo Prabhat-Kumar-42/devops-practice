@@ -1,0 +1,51 @@
+# gotta convert this to a md file
+
+-------------------------------------------------------------------
+we can define variale to groups in inventory file like this :
+
+suppose a group in inventory file has common variable ntp and port
+with same values.
+eg:- 
+      [web_servers] #this is how the group is defined
+      webserver_1 ntp_server="abc.ntp.org" http_port=443
+      webserver_2 ntp_server="abc.ntp.org" http_port=443
+
+then we can just add a variable group with all the common variables
+and common value
+
+        [web_servers: vars] #this how to declare variable which are 
+                            #common inbetween group
+        ntp_server=abc.ntp.org
+        http_port=443
+
+--------------------------------------------------------------------
+
+Although we can define group and host variable in default inventory
+it is not a good practice and make code difficult to read
+
+In this case we use host and group variable file
+
+host variables are stored in : /etc/ansible/host_vars
+    
+    here create the file for host that you want to have some different
+    keys/values than default
+
+    lets say both webserver_1 and webserver_2 has different port and 
+    ntp servers,
+    then we can create /etc/ansible/host_vars/webserver_1 and store 
+    the value of ntp and port there.
+    same can be done for webserver_2
+
+    Note: Host file have the same name as host
+
+group variables are stored in : /etc/ansible/gropus_vars
+    
+    here create the file for group that have common keys and values
+
+    lets say group webserver have common port and 
+    ntp servers,
+    then we can create /etc/ansible/group_vars/webserver and store 
+    the value of ntp and port there for all nodes of webservers.
+
+    Note: group file have the same name as the group which file is being
+          created
