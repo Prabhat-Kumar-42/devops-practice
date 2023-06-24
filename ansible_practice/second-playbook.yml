@@ -1,0 +1,17 @@
+---
+  - name: "ping server parrot"                                                          
+    hosts: "parrot"                                                                      
+    user: "blaze"
+    gather_facts: "false"
+    tasks:                                                                               
+     - name: "pinging parrot"                                                           
+       ping:
+
+  - name: "ping server arch"                                                            
+    hosts: "arch"                                                                        
+    user: "vagrant"     
+    gather_facts: "false"
+    tasks:                                                                               
+     - name: "pinging arch"                                                             
+       ping:
+
