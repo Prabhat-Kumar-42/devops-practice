@@ -8,9 +8,9 @@
 # so gotta acccess with -u user-name command
 echo accessing arch node
 echo
-ansible 192.168.10.105 -m ping -i "../ansible_inventory/inventory" -u vagrant
+ansible arch -m ping -i "../ansible_inventory/inventory" -u vagrant
 
 # file with delafult user-name
 echo
 echo accessing parrot node
-ansible 192.168.10.107 -m ping -i "../ansible_inventory/inventory"
+ansible parrot -m ping -i "../ansible_inventory/inventory"
